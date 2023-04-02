@@ -15,7 +15,8 @@ class BookLover:
         """This function tries to add book name and rating to the dataframe created. It also checkes whether the book is already in the book list and it it's not it gets added in along with it's associated rating"""
         self.book_name = str(book_name)
         self.rating = int(book_rating)
-        if self.book_name in self.book_list['book_name'].values:
+        if (self.book_list['book_name'].eq(book_name)).any():
+        #if book_name in self.book_list['book_name'].values:
             print("This book already exists in your created book list")
         else:
             if (self.rating > 5) | (self.rating < 0):
